@@ -1,0 +1,12 @@
+<div id="search-component">
+  <label for="search-box">Wyszukaj badania</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let test of tests$ | async">
+      <a (click)="addToCart(test); searchBox.value = ''">
+        {{ test.name }}
+      </a>
+    </li>
+  </ul>
+</div>

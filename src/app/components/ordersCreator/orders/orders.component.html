@@ -1,0 +1,71 @@
+<form #ordersForm="ngForm" (ngSubmit)="send()">
+  <div class="container">
+    <mat-card class="patient-details">
+      <h4>Wproadź dane pacjenta</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>Pesel</mat-label>
+        <input
+          matInput
+          name="pesel"
+          ngModel
+          required
+          [(ngModel)]="order.person.pesel"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Imię</mat-label>
+        <input
+          matInput
+          name="firstName"
+          ngModel
+          required
+          [(ngModel)]="order.person.firstName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Nazwisko</mat-label>
+        <input
+          matInput
+          name="lastName"
+          ngModel
+          required
+          [(ngModel)]="order.person.lastName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          name="email"
+          ngModel
+          required
+          [(ngModel)]="order.person.email"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefon</mat-label>
+        <input
+          matInput
+          name="phoneNumber"
+          ngModel
+          required
+          [(ngModel)]="order.person.phoneNumber"
+        />
+      </mat-form-field>
+    </mat-card>
+
+    <button mat-button type="submit" [disabled]="ordersForm.invalid">
+      Wyślij
+    </button>
+  </div>
+  <app-cart (newItemInService)="addToCart($event)"></app-cart>
+
+  <ul *ngIf="order.labTests">
+    <li *ngFor="let test of order.labTests">
+      {{ test.name }} {{ test.price }} zł <mat-icon>delete</mat-icon>
+    </li>
+  </ul>
+</form>
+<div>
+  <h3>Cena: {{ fullPrice }}</h3>
+</div>

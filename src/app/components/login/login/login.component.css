@@ -1,0 +1,10 @@
+.login-page {
+    margin-top: 50%;
+    padding: 30px;
+    border-radius: 5%;
+}
+
+.login-page mat-card-subtitle, mat-card-title {
+    margin: auto;
+    padding: 20px;
+}
