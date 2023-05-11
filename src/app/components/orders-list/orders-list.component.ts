@@ -1,9 +1,16 @@
-import {  Component, OnInit } from '@angular/core';
-import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
-import {MatTableDataSource} from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
+import {
+  Observable,
+  Subject,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap,
+} from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { Person } from 'src/app/interfaces/person';
 import { DataService } from 'src/app/services/data.service';
+import { Order } from 'src/app/interfaces/order';
 
 @Component({
   selector: 'app-orders-list',
@@ -11,35 +18,15 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./orders-list.component.css'],
 })
 export class OrdersListComponent implements OnInit {
-  persons: Person[] = [];
+  orders: Order[] = [];
   term: string = '';
 
-  heroes$!: Observable<Person[]>;
-  private searchTerms = new Subject<string>();
-  
   displayedColumns: string[] = ['id', 'Imie', 'Nazwisko'];
-  constructor(private data: DataService) {};
-
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
+  constructor(private data: DataService) {}
 
   ngOnInit() {
-    this.data.getPersons().subscribe((data) => {
-      this.persons = data;
+    this.data.getOrders().subscribe((data) => {
+      this.orders = data;
     });
-
-    this.heroes$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
-
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
-
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.data.searchPersons(term)),
-    );
-
   }
-
 }
