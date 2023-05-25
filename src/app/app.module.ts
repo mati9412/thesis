@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -14,6 +14,11 @@ import { OrdersComponent } from './components/ordersCreator/orders/orders.compon
 import { FormsModule } from '@angular/forms';
 import { OrdersListComponent } from './components/orders-list/orders-list.component';
 import { CartComponent } from './components/ordersCreator/cart/cart.component';
+import { TestTubesComponent } from './components/ordersCreator/test-tubes/test-tubes.component';
+import localePL from '@angular/common/locales/pl'
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePL);
 
 @NgModule({
   declarations: [
@@ -22,6 +27,7 @@ import { CartComponent } from './components/ordersCreator/cart/cart.component';
     OrdersComponent,
     OrdersListComponent,
     CartComponent,
+    TestTubesComponent,
   ],
   imports: [
     BrowserModule,

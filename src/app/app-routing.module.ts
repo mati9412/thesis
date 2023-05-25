@@ -4,11 +4,12 @@ import { LoginComponent } from './components/login/login/login.component';
 import { OrdersComponent } from './components/ordersCreator/orders/orders.component';
 import { AppComponent } from './app.component';
 import { OrdersListComponent } from './components/orders-list/orders-list.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'orders-list', component: OrdersListComponent },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'orders-list', component: OrdersListComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

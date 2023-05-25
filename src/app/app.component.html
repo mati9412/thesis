@@ -4,7 +4,15 @@
 
     <button mat-button routerLink="orders">Dodaj zlecenia</button>
     <button mat-button routerLink="orders-list">Lista zleceń</button>
+    <ng-container *ngIf = "!isAuthenticated()">
     <button mat-button routerLink="login">Zaloguj</button>
+    </ng-container>
+    <ng-container *ngIf = "isAuthenticated()">
+    <button mat-button (click) = "logout()">Wyloguj</button>
+    </ng-container>
   </mat-toolbar>
-  <router-outlet></router-outlet>
 </div>
+<div class="container">
+<router-outlet></router-outlet>
+</div>
+<footer></footer>

@@ -11,8 +11,10 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnDestroy {
+  currentDate = new Date();
   order: Order = {
     barcode: 0,
+    createDate: this.currentDate.toISOString(),
     person: {
       firstName: '',
       lastName: '',

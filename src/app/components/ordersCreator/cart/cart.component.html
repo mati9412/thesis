@@ -1,12 +1,19 @@
 <div id="search-component">
-  <label for="search-box">Wyszukaj badania</label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-
-  <ul class="search-result">
-    <li *ngFor="let test of tests$ | async">
-      <a (click)="addToCart(test); searchBox.value = ''">
-        {{ test.name }}
-      </a>
-    </li>
-  </ul>
+  <mat-form-field>
+    <mat-label style="display: block; text-align: center" for="search-box"
+      >Wyszukaj badania</mat-label
+    >
+    <input
+      matInput
+      #searchBox
+      id="search-box"
+      (input)="search(searchBox.value)"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let test of tests$ | async | slice : 0 : 3" [value]="test" (click)="addToCart(test); searchBox.value = ''">
+        {{test.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 </div>
