@@ -1,22 +1,25 @@
 <!-- <p *ngFor="let test of tests">
   {{ test.type }} <span class="material-symbols-outlined symbol"> labs </span>
 </p> -->
-<p>tu jest liczenie probówek</p>
-<div *ngIf = "tests">
-<h3 *ngIf="tests.length === 1 && checkType('Surowica'); else moreThanOne">
-  1 x <span class="material-symbols-outlined symbol"> labs </span>
-</h3>
-<ng-template #moreThanOne>
-  <div *ngIf="checkType('Surowica')">
-    <ng-container
-      *ngIf="checkExternal('Surowica'); then serum2; else serum"
-    ></ng-container>
-    <ng-template #serum2>
-      <h3>2 x <span class="material-symbols-outlined symbol"> labs </span></h3>
-    </ng-template>
-    <ng-template #serum>
-      <h3>1 x <span class="material-symbols-outlined symbol"> labs </span></h3>
-    </ng-template>
-  </div>
-</ng-template>
+<div *ngIf="tests">
+  <h3 *ngIf="tests.length === 1 && checkType('Surowica'); else moreThanOne">
+    1 x <span class="material-symbols-outlined symbol"> labs </span>
+  </h3>
+  <ng-template #moreThanOne>
+    <div *ngIf="checkType('Surowica')">
+      <ng-container
+        *ngIf="checkExternal('Surowica'); then serum2; else serum"
+      ></ng-container>
+      <ng-template #serum2>
+        <h3>
+          2 x <span class="material-symbols-outlined symbol"> labs </span>
+        </h3>
+      </ng-template>
+      <ng-template #serum>
+        <h3>
+          1 x <span class="material-symbols-outlined symbol"> labs </span>
+        </h3>
+      </ng-template>
+    </div>
+  </ng-template>
 </div>

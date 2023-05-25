@@ -40,9 +40,9 @@ export class OrdersComponent implements OnDestroy {
     this.order.person.pesel = '';
   }
 
-  addToCart(price: number) {
+  updateCart() {
     this.order.labTests = this.cart.getItems();
-    this.fullPrice += price;
+    this.fullPrice = this.cart.getPrice();
   }
   ngOnDestroy(): void {
     this.cart.clearCart();

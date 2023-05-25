@@ -17,8 +17,9 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class CartComponent {
   tests$!: Observable<LabTest[]>;
+  cartTests: LabTest [] = [];
   private searchTerms = new Subject<string>();
-  @Output() newItemInService = new EventEmitter<number>();
+  @Output() priceChange = new EventEmitter<number>();
 
   constructor(private data: DataService, private cart: CartService) {}
 
@@ -28,10 +29,20 @@ export class CartComponent {
 
   addToCart(item: LabTest) {
     this.cart.addToCart(item);
-    this.newItemInService.emit(item.price);
+    this.priceChange.emit();
+  }
+
+  getCart(){
+    this.cartTests = this.cart.getItems();
+  }
+
+  removeFromCart(test: LabTest){
+    this.cart.removeItem(test);
+    this.priceChange.emit();
   }
 
   ngOnInit() {
+    this.getCart();
     this.tests$ = this.searchTerms.pipe(
       debounceTime(300),
       distinctUntilChanged(),

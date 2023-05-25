@@ -11,9 +11,24 @@
       [matAutocomplete]="auto"
     />
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let test of tests$ | async | slice : 0 : 3" [value]="test" (click)="addToCart(test); searchBox.value = ''">
-        {{test.name}}
+      <mat-option
+        *ngFor="let test of tests$ | async | slice : 0 : 3"
+        [value]="test"
+        (click)="addToCart(test); searchBox.value = ''"
+      >
+        {{ test.name }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
+  <!-- LIST OF ITEMS IN CART -->
+  <div>
+    <mat-list *ngIf="cartTests" role="list">
+      <mat-list-item role="listitem" *ngFor="let test of cartTests"
+        >{{ test.name }} {{ test.price }} zł
+        <mat-icon (click)="removeFromCart(test)"
+          >delete</mat-icon
+        ></mat-list-item
+      >
+    </mat-list>
+  </div>
 </div>

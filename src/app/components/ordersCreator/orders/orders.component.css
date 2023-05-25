@@ -1,11 +1,13 @@
 .orders-form {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  /* justify-content:space-evenly; */
+  /* justify-content:space-between */
 
   /* flex-direction: column; */
   /* align-items: flex-start; */
 }
 
-.orders-form div {
-  background-color: bisque;
+.card {
+  padding: 40px;
 }

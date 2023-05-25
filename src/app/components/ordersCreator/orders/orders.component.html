@@ -1,81 +1,86 @@
-<!-- <div class="container"> -->
-  <form class="orders-form" #ordersForm="ngForm" (ngSubmit)="send()">
-    <div class="patient-details">
-      <mat-card>
-        <h4>Wproadź dane pacjenta</h4>
-        <mat-form-field appearance="fill">
-          <mat-label>Pesel</mat-label>
-          <input
-            matInput
-            name="pesel"
-            ngModel
-            required
-            [(ngModel)]="order.person.pesel"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Imię</mat-label>
-          <input
-            matInput
-            name="firstName"
-            ngModel
-            required
-            [(ngModel)]="order.person.firstName"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Nazwisko</mat-label>
-          <input
-            matInput
-            name="lastName"
-            ngModel
-            required
-            [(ngModel)]="order.person.lastName"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            name="email"
-            ngModel
-            required
-            [(ngModel)]="order.person.email"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Telefon</mat-label>
-          <input
-            matInput
-            name="phoneNumber"
-            ngModel
-            required
-            [(ngModel)]="order.person.phoneNumber"
-          />
-        </mat-form-field>
-      </mat-card>
-    </div>
+<form class="orders-form" #ordersForm="ngForm" (ngSubmit)="send()">
+  <!-- COLUMN I -->
+  <mat-card class="card patient-details">
+    <mat-card-header>
+      <span mat-card-avatar class="material-symbols-outlined"> person </span>
+      <mat-card-title>Wprowadź dane pacjenta</mat-card-title>
+    </mat-card-header>
+    <mat-form-field appearance="fill">
+      <mat-label>Pesel</mat-label>
+      <input
+        matInput
+        name="pesel"
+        ngModel
+        required
+        [(ngModel)]="order.person.pesel"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Imię</mat-label>
+      <input
+        matInput
+        name="firstName"
+        ngModel
+        required
+        [(ngModel)]="order.person.firstName"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nazwisko</mat-label>
+      <input
+        matInput
+        name="lastName"
+        ngModel
+        required
+        [(ngModel)]="order.person.lastName"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        name="email"
+        ngModel
+        required
+        [(ngModel)]="order.person.email"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Telefon</mat-label>
+      <input
+        matInput
+        name="phoneNumber"
+        ngModel
+        required
+        [(ngModel)]="order.person.phoneNumber"
+      />
+    </mat-form-field>
+  </mat-card>
+  <!-- COLUMN II -->
+  <mat-card class="card searcher">
+    <mat-card-header>
+      <span mat-card-avatar class="material-symbols-outlined">
+        shopping_cart
+      </span>
+      <mat-card-title>Koszyk</mat-card-title>
+    </mat-card-header>
     <div class="cart">
-      <app-cart (newItemInService)="addToCart($event)"></app-cart>
-    </div>
-
-    <!-- <ul *ngIf="order.labTests">
-    <li *ngFor="let test of order.labTests">
-      {{ test.name }} {{ test.price }} zł <mat-icon>delete</mat-icon>
-    </li>
-  </ul> -->
-    <div>
-      <mat-list *ngIf="order.labTests" role="list">
-        <mat-list-item role="listitem" *ngFor="let test of order.labTests"
-          >{{ test.name }} {{ test.price }} zł
-          <mat-icon>delete</mat-icon></mat-list-item
-        >
-      </mat-list>
+      <app-cart (priceChange)="updateCart()"></app-cart>
     </div>
     <div class="price">
       <h3>Cena: {{ fullPrice }} zł</h3>
     </div>
-
+  </mat-card>
+  <!-- COLUMN III -->
+  <mat-card class="card additions">
+    <mat-card-header>
+      <span mat-card-avatar class="material-symbols-outlined">
+        lab_research
+      </span>
+      <mat-card-title>Dodatkowe informacje</mat-card-title>
+      <!-- <mat-card-subtitle></mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-subtitle>Przygotuj probówki: </mat-card-subtitle>
     <div class="tests-counter">
       <app-test-tubes [tests]="order.labTests"></app-test-tubes>
     </div>
@@ -84,5 +89,5 @@
         Zarejestruj zlecenie
       </button>
     </div>
-  </form>
-<!-- </div> -->
+  </mat-card>
+</form>
