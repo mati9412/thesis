@@ -17,6 +17,7 @@ import { CartComponent } from './components/ordersCreator/cart/cart.component';
 import { TestTubesComponent } from './components/ordersCreator/test-tubes/test-tubes.component';
 import localePL from '@angular/common/locales/pl'
 import { registerLocaleData } from '@angular/common';
+import { TestsFinderComponent } from './components/ordersCreator/tests-finder/tests-finder.component';
 
 registerLocaleData(localePL);
 
@@ -28,6 +29,7 @@ registerLocaleData(localePL);
     OrdersListComponent,
     CartComponent,
     TestTubesComponent,
+    TestsFinderComponent,
   ],
   imports: [
     BrowserModule,

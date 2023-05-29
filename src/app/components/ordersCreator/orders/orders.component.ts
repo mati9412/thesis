@@ -1,9 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { LabTest } from 'src/app/interfaces/lab-test';
 import { Order } from 'src/app/interfaces/order';
 import { Person } from 'src/app/interfaces/person';
 import { CartService } from 'src/app/services/cart.service';
 import { DataService } from 'src/app/services/data.service';
+import { TestsFinderComponent } from '../tests-finder/tests-finder.component';
+import { Dialog } from '@angular/cdk/dialog';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-orders',
@@ -27,7 +31,12 @@ export class OrdersComponent implements OnDestroy {
 
   fullPrice: number = 0;
 
-  constructor(private data: DataService, private cart: CartService) {}
+  constructor(
+    private data: DataService,
+    private cart: CartService,
+    public dialog: MatDialog,
+    private dialogService: DialogService
+  ) {}
 
   send() {
     this.data.createOrder(this.order).subscribe((response) => {
@@ -44,6 +53,13 @@ export class OrdersComponent implements OnDestroy {
     this.order.labTests = this.cart.getItems();
     this.fullPrice = this.cart.getPrice();
   }
+
+  openDialog() {
+    this.dialogService.openComponentInCard().subscribe(() => {
+      this.updateCart();
+    });
+  }
+
   ngOnDestroy(): void {
     this.cart.clearCart();
   }

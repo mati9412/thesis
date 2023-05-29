@@ -34,6 +34,20 @@ export class DataService {
     );
   }
 
+  getLabTests(): Observable<LabTest[]> {
+    return this.http.get<{ [key: string]: LabTest }>(sources.labsSource).pipe(
+      map((response) => {
+        const data: LabTest[] = [];
+        for (const key in response) {
+          if (response.hasOwnProperty(key)) {
+            data.push({ ...response[key], id: key });
+          }
+        }
+        return data;
+      })
+    );
+  }
+
   searchLabTestsByName(query: string): Observable<LabTest[]> {
     if (!query.trim()) {
       // if not search term, return empty hero array.

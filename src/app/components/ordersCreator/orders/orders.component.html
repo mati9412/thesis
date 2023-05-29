@@ -64,12 +64,11 @@
       </span>
       <mat-card-title>Koszyk</mat-card-title>
     </mat-card-header>
-    <div class="cart">
-      <app-cart (priceChange)="updateCart()"></app-cart>
-    </div>
-    <div class="price">
-      <h3>Cena: {{ fullPrice }} zł</h3>
-    </div>
+    <mat-card class="cart">
+      <div>
+        <app-cart (priceChange)="updateCart()"></app-cart>
+      </div>
+    </mat-card>
   </mat-card>
   <!-- COLUMN III -->
   <mat-card class="card additions">
@@ -78,16 +77,38 @@
         lab_research
       </span>
       <mat-card-title>Dodatkowe informacje</mat-card-title>
-      <!-- <mat-card-subtitle></mat-card-subtitle> -->
+      <div></div>
     </mat-card-header>
-    <mat-card-subtitle>Przygotuj probówki: </mat-card-subtitle>
-    <div class="tests-counter">
-      <app-test-tubes [tests]="order.labTests"></app-test-tubes>
-    </div>
+    <button
+      class="searchButton"
+      color="primary"
+      type="button"
+      mat-raised-button
+      (click)="openDialog()"
+    >
+      <span class="material-symbols-outlined"> search </span>
+    </button>
+    <mat-card class="tests-counter">
+      <mat-card-subtitle>Przygotuj probówki: </mat-card-subtitle>
+      <div class="tests-counter">
+        <app-test-tubes [tests]="order.labTests"></app-test-tubes>
+      </div>
+    </mat-card>
+    <mat-card class="paymentChoice">
+      <mat-card-subtitle>Forma płatności:</mat-card-subtitle>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Gotówka</mat-radio-button>
+        <mat-radio-button value="2">Karta</mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
     <div class="submit-form">
       <button mat-button type="submit" [disabled]="ordersForm.invalid">
         Zarejestruj zlecenie
       </button>
+      <h3>Cena: {{ fullPrice }} zł</h3>
     </div>
+    <!-- <div class="price">
+      <h3>Cena: {{ fullPrice }} zł</h3>
+    </div> -->
   </mat-card>
 </form>

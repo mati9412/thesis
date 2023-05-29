@@ -10,4 +10,27 @@
 
 .card {
   padding: 40px;
+  width: 100%;
+}
+
+.additions {
+  display: flex;
+  flex-direction: column;
+}
+.tests-counter,
+.paymentChoice,
+.cart {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.searchButton {
+  padding: 20px;
+}
+
+.submit-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }

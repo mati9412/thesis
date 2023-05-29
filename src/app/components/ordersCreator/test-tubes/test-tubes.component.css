@@ -1,11 +1,15 @@
-
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 500,
-  'GRAD' 0,
-  'opsz' 48
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 48;
 }
-.symbol {
-    color: red;
+.symbolSerum {
+  color: red;
+}
+.symbolEdta {
+  color: purple;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

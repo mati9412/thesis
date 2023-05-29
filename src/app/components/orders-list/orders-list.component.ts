@@ -1,9 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
-import { Person } from 'src/app/interfaces/person';
 import { DataService } from 'src/app/services/data.service';
 import { Order } from 'src/app/interfaces/order';
 
@@ -14,12 +13,11 @@ import { Order } from 'src/app/interfaces/order';
 })
 export class OrdersListComponent implements OnInit {
   orders: Order[] = [];
-  term: string = '';
   dataSource!: MatTableDataSource<Order>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['createDate', 'Imie', 'Nazwisko'];
+  displayedColumns: string[] = ['createDate', 'pesel', 'firstName', 'lastName'];
   constructor(private data: DataService) {}
 
   ngOnInit() {

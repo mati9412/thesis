@@ -1,5 +1,5 @@
 <div id="search-component">
-  <mat-form-field>
+  <mat-form-field class="formField widthFull">
     <mat-label style="display: block; text-align: center" for="search-box"
       >Wyszukaj badania</mat-label
     >
@@ -23,12 +23,18 @@
   <!-- LIST OF ITEMS IN CART -->
   <div>
     <mat-list *ngIf="cartTests" role="list">
-      <mat-list-item role="listitem" *ngFor="let test of cartTests"
-        >{{ test.name }} {{ test.price }} zł
-        <mat-icon (click)="removeFromCart(test)"
-          >delete</mat-icon
-        ></mat-list-item
+      <mat-list-item
+        class="list"
+        role="listitem"
+        *ngFor="let test of cartTests"
       >
+        <div>{{ test.name }} {{ test.price }} zł</div>
+        <div>
+          <mat-icon class="item" (click)="removeFromCart(test)">
+            delete
+          </mat-icon>
+        </div>
+      </mat-list-item>
     </mat-list>
   </div>
 </div>
