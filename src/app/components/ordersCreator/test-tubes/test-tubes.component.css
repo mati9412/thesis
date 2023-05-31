@@ -7,7 +7,10 @@
 .symbolEdta {
   color: purple;
 }
-.content{
+.symbolGlucose {
+  color: gray;
+}
+.content {
   display: flex;
   flex-direction: column;
   justify-content: center;

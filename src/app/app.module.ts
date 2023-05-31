@@ -18,6 +18,8 @@ import { TestTubesComponent } from './components/ordersCreator/test-tubes/test-t
 import localePL from '@angular/common/locales/pl'
 import { registerLocaleData } from '@angular/common';
 import { TestsFinderComponent } from './components/ordersCreator/tests-finder/tests-finder.component';
+import { FinancesComponent } from './components/finances/finances.component';
+import { UpdatePersonComponent } from './components/orders-list/update-person/update-person.component';
 
 registerLocaleData(localePL);
 
@@ -30,6 +32,8 @@ registerLocaleData(localePL);
     CartComponent,
     TestTubesComponent,
     TestsFinderComponent,
+    FinancesComponent,
+    UpdatePersonComponent,
   ],
   imports: [
     BrowserModule,

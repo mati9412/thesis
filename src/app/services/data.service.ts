@@ -67,6 +67,23 @@ export class DataService {
       })
     );
   }
+
+  deleteOrder(id: string) {
+    return this.http.delete(
+      'https://thesis-f6bb3-default-rtdb.europe-west1.firebasedatabase.app/orders/' +
+        id +
+        '.json'
+    );
+  }
+
+  updateOrder(order: Order) {
+    return this.http.put(
+      'https://thesis-f6bb3-default-rtdb.europe-west1.firebasedatabase.app/orders/' +
+        order.id +
+        '.json',
+      order
+    );
+  }
 }
 
 // getPersons(): Observable<Person[]> {

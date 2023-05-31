@@ -1,12 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { LabTest } from 'src/app/interfaces/lab-test';
+import { Component, OnDestroy } from '@angular/core';
+import { finalize } from 'rxjs';
 import { Order } from 'src/app/interfaces/order';
-import { Person } from 'src/app/interfaces/person';
 import { CartService } from 'src/app/services/cart.service';
 import { DataService } from 'src/app/services/data.service';
-import { TestsFinderComponent } from '../tests-finder/tests-finder.component';
-import { Dialog } from '@angular/cdk/dialog';
 import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
@@ -17,7 +13,6 @@ import { DialogService } from 'src/app/services/dialog.service';
 export class OrdersComponent implements OnDestroy {
   currentDate = new Date();
   order: Order = {
-    barcode: 0,
     createDate: this.currentDate.toISOString(),
     person: {
       firstName: '',
@@ -27,35 +22,37 @@ export class OrdersComponent implements OnDestroy {
       pesel: '',
     },
     labTests: [],
+    barcode: 0,
+    payment: 0,
+    paymentMethodIsCard: true,
   };
 
-  fullPrice: number = 0;
+  //fullPrice: number = 0;
 
   constructor(
     private data: DataService,
     private cart: CartService,
-    public dialog: MatDialog,
     private dialogService: DialogService
   ) {}
 
   send() {
-    this.data.createOrder(this.order).subscribe((response) => {
-      console.log(response);
-    });
-    this.order.person.firstName = '';
-    this.order.person.lastName = '';
-    this.order.person.email = '';
-    this.order.person.phoneNumber = '';
-    this.order.person.pesel = '';
+    this.data
+      .createOrder(this.order)
+      .pipe(
+        finalize(() => {
+          location.reload();
+        })
+      )
+      .subscribe();
   }
 
   updateCart() {
     this.order.labTests = this.cart.getItems();
-    this.fullPrice = this.cart.getPrice();
+    this.order.payment = this.cart.getPrice();
   }
 
   openDialog() {
-    this.dialogService.openComponentInCard().subscribe(() => {
+    this.dialogService.openCardFinder().subscribe(() => {
       this.updateCart();
     });
   }

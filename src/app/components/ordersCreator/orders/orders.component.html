@@ -11,6 +11,7 @@
         matInput
         name="pesel"
         ngModel
+        pattern="^[0-9]{11}$"
         required
         [(ngModel)]="order.person.pesel"
       />
@@ -96,16 +97,20 @@
     </mat-card>
     <mat-card class="paymentChoice">
       <mat-card-subtitle>Forma płatności:</mat-card-subtitle>
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1">Gotówka</mat-radio-button>
-        <mat-radio-button value="2">Karta</mat-radio-button>
+      <mat-radio-group
+        aria-label="Select an option"
+        [(ngModel)]="order.paymentMethodIsCard"
+        name="paymentMethod"
+      >
+        <mat-radio-button [value]="false">Gotówka</mat-radio-button>
+        <mat-radio-button [value]="true">Karta</mat-radio-button>
       </mat-radio-group>
     </mat-card>
     <div class="submit-form">
       <button mat-button type="submit" [disabled]="ordersForm.invalid">
         Zarejestruj zlecenie
       </button>
-      <h3>Cena: {{ fullPrice }} zł</h3>
+      <h3>Cena: {{ order.payment }} zł</h3>
     </div>
     <!-- <div class="price">
       <h3>Cena: {{ fullPrice }} zł</h3>

@@ -1,32 +1,16 @@
-<!-- <ul *ngIf="persons">
-  <li *ngFor="let person of persons">
-    <button>
-      {{ person.firstName }} {{ person.lastName }} {{ person.id }} 
-    </button>
-  </li>
-</ul> -->
-
-<!-- <input type="text" [(ngModel)]="term" />
-
-<div *ngFor="let person of persons | filter : term">
-  <p *ngIf="term.length > 0">
-    {{ person.firstName }}
-  </p>
-</div> -->
-
 <mat-form-field>
   <mat-label>Wyszukaj</mat-label>
-  <input matInput placeholder="search" (keyup) = "applyFilter($event)" #input />
+  <input matInput placeholder="search" (keyup)="applyFilter($event)" #input />
 </mat-form-field>
 
 <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
-  <!-- Position Column -->
   <ng-container matColumnDef="createDate">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Data</th>
-    <td mat-cell *matCellDef="let element">{{ element.createDate | date: 'medium':'':'pl' }}</td>
+    <td mat-cell *matCellDef="let element">
+      {{ element.createDate | date : "medium" : "" : "pl" }}
+    </td>
   </ng-container>
 
-  <!-- Name Column -->
   <ng-container matColumnDef="pesel">
     <th mat-header-cell *matHeaderCellDef>PESEL</th>
     <td mat-cell *matCellDef="let element">{{ element.person.pesel }}</td>
@@ -42,15 +26,29 @@
     <td mat-cell *matCellDef="let element">{{ element.person.lastName }}</td>
   </ng-container>
 
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button (click)="onEditPatient(element)">
+        Edytuj
+      </button>
+      <button mat-button (click)="onDeleteOrder(element.id)">
+        <span><mat-icon> delete </mat-icon></span>
+      </button>
+    </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
   <tr class="mat-row" *matNoDataRow>
-    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    <td class="mat-cell" colspan="4">
+      Nie znaleziono po wpisanej wartości "{{ input.value }}"
+    </td>
   </tr>
 </table>
 
 <mat-paginator
-  [pageSizeOptions]="[5, 10, 25]"
+  [pageSizeOptions]="[5, 10]"
   aria-labels="select page of orders"
 ></mat-paginator>

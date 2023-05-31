@@ -3,58 +3,61 @@
 </p> -->
 
 <div class="content" *ngIf="tests">
-    <div>
-      <h3
-        *ngIf="
-          tests.length === 1 && checkType('Surowica');
-          else moreThanOneSerum
-        "
-      >
-        1 x <span class="material-symbols-outlined symbolSerum"> labs </span>
-      </h3>
-      <ng-template #moreThanOneSerum>
-        <div *ngIf="checkType('Surowica')">
-          <ng-container
-            *ngIf="checkExternal('Surowica'); then serum2; else serum"
-          ></ng-container>
-          <ng-template #serum2>
-            <h3>
-              2 x
-              <span class="material-symbols-outlined symbolSerum"> labs </span>
-            </h3>
-          </ng-template>
-          <ng-template #serum>
-            <h3>
-              1 x
-              <span class="material-symbols-outlined symbolSerum"> labs </span>
-            </h3>
-          </ng-template>
-        </div>
-      </ng-template>
-    </div>
+  <div>
+    <h3
+      *ngIf="tests.length === 1 && checkType('Surowica'); else moreThanOneSerum"
+    >
+      1 x <span class="material-symbols-outlined symbolSerum"> labs </span>
+    </h3>
+    <ng-template #moreThanOneSerum>
+      <div *ngIf="checkType('Surowica')">
+        <ng-container
+          *ngIf="checkExternal('Surowica'); then serum2; else serum"
+        ></ng-container>
+        <ng-template #serum2>
+          <h3>
+            2 x
+            <span class="material-symbols-outlined symbolSerum"> labs </span>
+          </h3>
+        </ng-template>
+        <ng-template #serum>
+          <h3>
+            1 x
+            <span class="material-symbols-outlined symbolSerum"> labs </span>
+          </h3>
+        </ng-template>
+      </div>
+    </ng-template>
+  </div>
 
-    <div>
-      <h3 *ngIf="tests.length === 1 && checkType('EDTA'); else moreThanOneEdta">
-        1 x <span class="material-symbols-outlined symbolSerum"> labs </span>
-      </h3>
-      <ng-template #moreThanOneEdta>
-        <div *ngIf="checkType('EDTA')">
-          <ng-container
-            *ngIf="checkExternal('EDTA'); then edta2; else edta"
-          ></ng-container>
-          <ng-template #edta2>
-            <h3>
-              2 x
-              <span class="material-symbols-outlined symbolEdta"> labs </span>
-            </h3>
-          </ng-template>
-          <ng-template #edta>
-            <h3>
-              1 x
-              <span class="material-symbols-outlined symbolEdta"> labs </span>
-            </h3>
-          </ng-template>
-        </div>
-      </ng-template>
-    </div>
+  <div>
+    <h3 *ngIf="tests.length === 1 && checkType('EDTA'); else moreThanOneEdta">
+      1 x <span class="material-symbols-outlined symbolEdta"> labs </span>
+    </h3>
+    <ng-template #moreThanOneEdta>
+      <div *ngIf="checkType('EDTA')">
+        <ng-container
+          *ngIf="checkExternal('EDTA'); then edta2; else edta"
+        ></ng-container>
+        <ng-template #edta2>
+          <h3>
+            2 x
+            <span class="material-symbols-outlined symbolEdta"> labs </span>
+          </h3>
+        </ng-template>
+        <ng-template #edta>
+          <h3>
+            1 x
+            <span class="material-symbols-outlined symbolEdta"> labs </span>
+          </h3>
+        </ng-template>
+      </div>
+    </ng-template>
+  </div>
+
+  <div>
+    <h3 *ngIf="checkType('Glukoza')">
+      1 x <span class="material-symbols-outlined symbolGlucose"> labs </span>
+    </h3>
+  </div>
 </div>
