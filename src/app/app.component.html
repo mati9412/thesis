@@ -1,19 +1,19 @@
 <div class="toolbar">
-  <mat-toolbar color = "primary" class="toolbar flex justify-content-between">
+  <mat-toolbar color="primary" class="toolbar flex justify-content-between">
     <a routerLink="" mat-button>Krwinka</a>
-    
+
     <button mat-button routerLink="orders">Dodaj zlecenia</button>
     <button mat-button routerLink="orders-list">Lista zleceń</button>
     <button mat-button routerLink="finances">Finanse</button>
-    <ng-container *ngIf = "!isAuthenticated()">
-    <button mat-button routerLink="login">Zaloguj</button>
+    <ng-container *ngIf="!isAuthenticated()">
+      <button mat-button routerLink="login">Zaloguj</button>
     </ng-container>
-    <ng-container *ngIf = "isAuthenticated()">
-    <button mat-button (click) = "logout()">Wyloguj</button>
+    <ng-container *ngIf="isAuthenticated()">
+      <button mat-button (click)="logout()">Wyloguj</button>
     </ng-container>
   </mat-toolbar>
 </div>
 <div class="container">
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 <footer></footer>

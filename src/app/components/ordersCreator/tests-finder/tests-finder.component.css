@@ -1,8 +1,5 @@
-.add{
-    cursor: pointer;
-}
 
 .mat-mdc-row:hover .mat-mdc-cell {
-    background-color: rgb(195, 193, 193);
+    background-color: rgb(243, 236, 236);
 }
 

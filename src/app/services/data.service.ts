@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Order } from '../interfaces/order';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Person } from '../interfaces/person';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of, tap } from 'rxjs';
 import { map } from 'rxjs';
 import { LabTest } from '../interfaces/lab-test';
 import { sources } from '../consts/sources';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class DataService {
   source: string =
     'https://thesis-f6bb3-default-rtdb.europe-west1.firebasedatabase.app/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   createOrder(order: Order) {
     return this.http.post(sources.ordersSource, order);
@@ -84,6 +84,14 @@ export class DataService {
       order
     );
   }
+
+  reloadComponent() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl(currentUrl);
+    });
+  }
+
 }
 
 // getPersons(): Observable<Person[]> {

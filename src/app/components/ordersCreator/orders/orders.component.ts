@@ -22,12 +22,10 @@ export class OrdersComponent implements OnDestroy {
       pesel: '',
     },
     labTests: [],
-    barcode: 0,
+    barcode: '',
     payment: 0,
     paymentMethodIsCard: true,
   };
-
-  //fullPrice: number = 0;
 
   constructor(
     private data: DataService,
@@ -36,14 +34,18 @@ export class OrdersComponent implements OnDestroy {
   ) {}
 
   send() {
+    if (this.order.labTests.length == 0) alert("Brak badań w koszyku")
+    else {
     this.data
       .createOrder(this.order)
       .pipe(
         finalize(() => {
-          location.reload();
+          alert(`Dodano nowe zlecenie o numerze ${this.order.barcode}`)
+          this.data.reloadComponent();
         })
       )
       .subscribe();
+    }
   }
 
   updateCart() {
@@ -56,8 +58,20 @@ export class OrdersComponent implements OnDestroy {
       this.updateCart();
     });
   }
-
+  
   ngOnDestroy(): void {
     this.cart.clearCart();
   }
+
+  // clearOrder(){
+  //   this.order.barcode = 0;
+  //   this.order.payment = 0;
+  //   this.order.labTests = [];
+  //   this.order.person.email = ''
+  //   this.order.person.firstName= ''
+  //   this.order.person.lastName = ''
+  //   this.order.person.phoneNumber = ''
+  //   this.order.person.pesel = ''
+  // }
+
 }

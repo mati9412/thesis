@@ -1,7 +1,7 @@
-<div class="flex">
+<div class="flex page">
   <div class="m-auto">
     <mat-card class="login-page">
-      <mat-card-title>Zaloguj sie do systemu</mat-card-title>
+      <mat-card-title>Zaloguj się do systemu</mat-card-title>
       <mat-card-subtitle>Wprowadź swój login oraz hasło</mat-card-subtitle>
       <mat-card-content>
         <form action="" (ngSubmit)="login()">
@@ -15,7 +15,7 @@
               [(ngModel)]="email"
             />
           </mat-form-field>
-          <mat-divider></mat-divider>
+          <mat-divider class="divider"></mat-divider>
           <mat-form-field>
             <mat-label>Password</mat-label>
             <input

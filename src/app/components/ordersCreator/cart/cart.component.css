@@ -1,6 +1,14 @@
-.item {
-  cursor: pointer;
+.items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 10px 0px solid black;
 }
+
+.delete-icon {
+  vertical-align: center;
+}
+
 .formField {
   justify-content: center;
 }

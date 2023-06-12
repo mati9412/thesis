@@ -44,8 +44,10 @@
 
     <ng-container matColumnDef="buy">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell class="add" *matCellDef="let element">
-        <mat-icon (click)="addToCart(element)"> add </mat-icon>
+      <td mat-cell *matCellDef="let element">
+        <button type="button" mat-button (click)="addToCart(element)">
+        <mat-icon> add </mat-icon>
+        </button>
       </td>
     </ng-container>
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class AuthService {
       () => {
         this.isAuthenticated = true;
         localStorage.setItem('token', 'true');
-        this.router.navigate(['/orders']);
+        this.router.navigate(['/orders-list']);
       },
       (err) => {
         this.isAuthenticated = false;

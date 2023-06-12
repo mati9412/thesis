@@ -3,7 +3,7 @@ import { Person } from './person';
 
 export interface Order {
   id?: string;
-  barcode: number;
+  barcode: string;
   payment: number;
   paymentMethodIsCard: boolean;
   createDate: string;

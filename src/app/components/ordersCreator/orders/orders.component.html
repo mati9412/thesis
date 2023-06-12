@@ -52,6 +52,7 @@
         matInput
         name="phoneNumber"
         ngModel
+        pattern="^[0-9]{9}$"
         required
         [(ngModel)]="order.person.phoneNumber"
       />

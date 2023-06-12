@@ -34,8 +34,17 @@ export class OrdersListComponent implements OnInit {
   }
 
   applyFilter(event: Event) {
+    this.dataSource.data = this.orders;
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    const filteredData = this.dataSource.data.slice();
+    const filteredRows = filteredData.filter((item) => {
+      return (
+        item.person &&
+        item.person.pesel.toLowerCase().includes(filterValue.toLowerCase())
+      );
+    });
+
+    this.dataSource.data = filteredRows;
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
@@ -48,7 +57,7 @@ export class OrdersListComponent implements OnInit {
     });
   }
 
-  onEditPatient(order: Order){
+  onEditPatient(order: Order) {
     this.dialog.openDialogWithData(order);
   }
 

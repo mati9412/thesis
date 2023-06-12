@@ -28,11 +28,11 @@
         role="listitem"
         *ngFor="let test of cartTests"
       >
-        <div>{{ test.name }} {{ test.price }} zł</div>
-        <div>
-          <mat-icon class="item" (click)="removeFromCart(test)">
-            delete
-          </mat-icon>
+        <div class="items">
+          <span>{{ test.name }} {{ test.price }} zł</span>
+          <button type="button" mat-button (click)="removeFromCart(test)">
+            <mat-icon class="delete-icon"> delete </mat-icon>
+          </button>
         </div>
       </mat-list-item>
     </mat-list>
