@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class DataService {
-  source: string =
-    'https://thesis-f6bb3-default-rtdb.europe-west1.firebasedatabase.app/';
+  // source: string =
+  //   'https://thesis-f6bb3-default-rtdb.europe-west1.firebasedatabase.app/';
 
   constructor(private http: HttpClient, private router: Router) {}
 

@@ -20,6 +20,7 @@ import { registerLocaleData } from '@angular/common';
 import { TestsFinderComponent } from './components/ordersCreator/tests-finder/tests-finder.component';
 import { FinancesComponent } from './components/finances/finances.component';
 import { UpdatePersonComponent } from './components/orders-list/update-person/update-person.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 registerLocaleData(localePL);
 
@@ -45,7 +46,7 @@ registerLocaleData(localePL);
     HttpClientModule,
     Ng2SearchPipeModule,
   ],
-  providers: [],
+  providers: [ { provide: MAT_DATE_LOCALE, useValue: 'pl' } ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

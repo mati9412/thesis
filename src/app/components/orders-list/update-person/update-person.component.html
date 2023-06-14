@@ -1,65 +1,65 @@
 <form class="orders-form" #ordersForm="ngForm" (ngSubmit)="update()">
-    <mat-card class="card">
-      <mat-card-header>
-        <span mat-card-avatar class="material-symbols-outlined"> person </span>
-        <mat-card-title>Edytuj dane pacjenta</mat-card-title>
-      </mat-card-header>
-      <mat-form-field appearance="fill">
-        <mat-label>Pesel</mat-label>
-        <input
-          matInput
-          name="pesel"
-          ngModel
-          pattern="^[0-9]{11}$"
-          required
-          [(ngModel)]="order.person.pesel"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Imię</mat-label>
-        <input
-          matInput
-          name="firstName"
-          ngModel
-          required
-          [(ngModel)]="order.person.firstName"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Nazwisko</mat-label>
-        <input
-          matInput
-          name="lastName"
-          ngModel
-          required
-          [(ngModel)]="order.person.lastName"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          name="email"
-          ngModel
-          required
-          [(ngModel)]="order.person.email"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Telefon</mat-label>
-        <input
-          matInput
-          name="phoneNumber"
-          ngModel
-          required
-          [(ngModel)]="order.person.phoneNumber"
-        />
-      </mat-form-field>
-      <button mat-button type="submit" [disabled]="ordersForm.invalid">
-        Zapisz zmiany
-      </button>
-      <mat-dialog-actions>
-          <button mat-button mat-dialog-close>Anuluj</button>
-        </mat-dialog-actions>
-    </mat-card>
+  <mat-card class="card">
+    <mat-card-header>
+      <span mat-card-avatar class="material-symbols-outlined"> person </span>
+      <mat-card-title>Edytuj dane pacjenta</mat-card-title>
+    </mat-card-header>
+    <mat-form-field appearance="fill">
+      <mat-label>Pesel</mat-label>
+      <input
+        matInput
+        name="pesel"
+        ngModel
+        pattern="^[0-9]{11}$"
+        required
+        [(ngModel)]="order.person.pesel"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Imię</mat-label>
+      <input
+        matInput
+        name="firstName"
+        ngModel
+        required
+        [(ngModel)]="order.person.firstName"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nazwisko</mat-label>
+      <input
+        matInput
+        name="lastName"
+        ngModel
+        required
+        [(ngModel)]="order.person.lastName"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        name="email"
+        ngModel
+        required
+        [(ngModel)]="order.person.email"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Telefon</mat-label>
+      <input
+        matInput
+        name="phoneNumber"
+        ngModel
+        required
+        [(ngModel)]="order.person.phoneNumber"
+      />
+    </mat-form-field>
+    <button mat-button type="submit" [disabled]="ordersForm.invalid">
+      Zapisz zmiany
+    </button>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Anuluj</button>
+    </mat-dialog-actions>
+  </mat-card>
 </form>
