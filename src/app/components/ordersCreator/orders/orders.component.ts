@@ -63,15 +63,4 @@ export class OrdersComponent implements OnDestroy {
     this.cart.clearCart();
   }
 
-  // clearOrder(){
-  //   this.order.barcode = 0;
-  //   this.order.payment = 0;
-  //   this.order.labTests = [];
-  //   this.order.person.email = ''
-  //   this.order.person.firstName= ''
-  //   this.order.person.lastName = ''
-  //   this.order.person.phoneNumber = ''
-  //   this.order.person.pesel = ''
-  // }
-
 }

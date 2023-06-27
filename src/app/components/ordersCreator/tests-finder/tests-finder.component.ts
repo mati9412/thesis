@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -54,15 +60,14 @@ export class TestsFinderComponent implements OnInit {
     if (test.stability === true) return 'Stabilne';
     else return 'Niestabilne';
   }
-  
+
   LabExternal(test: LabTest) {
     if (test.external === true) return 'Wysyłkowe';
     else return 'Lokalnie';
   }
 
-  addToCart(test: LabTest){
+  addToCart(test: LabTest) {
     this.cart.addToCart(test);
     this.priceChange.emit();
   }
-
 }

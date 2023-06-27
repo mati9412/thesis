@@ -57,6 +57,17 @@
         [(ngModel)]="order.person.phoneNumber"
       />
     </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nr zlecenia</mat-label>
+      <input
+        matInput
+        name="barcode"
+        ngModel
+        pattern="^[0-9]{10}$"
+        required
+        [(ngModel)]="order.barcode"
+      />
+    </mat-form-field>
   </mat-card>
   <!-- COLUMN II -->
   <mat-card class="card searcher">

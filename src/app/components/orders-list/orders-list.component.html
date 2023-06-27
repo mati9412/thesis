@@ -1,6 +1,11 @@
 <mat-form-field>
   <mat-label>Wyszukaj</mat-label>
-  <input matInput placeholder="Wprowadź PESEL" (keyup)="applyFilter($event)" #input />
+  <input
+    matInput
+    placeholder="Wprowadź PESEL"
+    (keyup)="applyFilter($event)"
+    #input
+  />
 </mat-form-field>
 
 <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
@@ -33,6 +38,7 @@
       <button mat-button (click)="onDeleteOrder(element.id)">
         <span><mat-icon> delete </mat-icon></span>
       </button>
+      <button mat-button disabled>Wyniki</button>
     </td>
   </ng-container>
 

@@ -12,9 +12,6 @@
   <mat-datepicker #picker disabled="false"></mat-datepicker>
 </mat-form-field>
 
-<!-- <mat-toolbar class="title">
-    <span>Podsumowanie płatności na dzień {{selectedDate | date : "shortDate" : "" : "pl"}}</span>
-  </mat-toolbar> -->
 <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="createDate">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Data rejestracji</th>
@@ -55,7 +52,7 @@
 
   <tr class="mat-row" *matNoDataRow>
     <td class="mat-cell" colspan="4">
-      Nie znaleziono po wpisanej wartości "{{ input.value }}"
+      Nie znaleziono na dzień "{{ input.value }}"
     </td>
   </tr>
 </table>
