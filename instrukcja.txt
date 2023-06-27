@@ -2,3 +2,6 @@ Aplikacja do obsługi pacjentów punktu pobrań, do uruchomienia aplikacji potrz
 Instrukcja:
 1. Należy uruchomić terminal w IDE, następnie w katalogu głównym projektu wykonać komendę 'npm install'
 2. Po instalacji zależności należy wykonać komendę 'ng serve --open'. Spowoduje to kompilację i automatyczne uruchomienie aplikacji w domyślnej przeglądarce 
+3. Aby zalogować do systemu, używamy następujących danych logowania: 
+login: testowy1@wwsi.pl
+hasło: Testowy1
