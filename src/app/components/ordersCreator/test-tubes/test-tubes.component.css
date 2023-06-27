@@ -10,6 +10,9 @@
 .symbolGlucose {
   color: gray;
 }
+.symbolOsocze {
+  color: blue;
+}
 .content {
   display: flex;
   flex-direction: column;

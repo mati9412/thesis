@@ -26,6 +26,34 @@
     </ng-template>
   </div>
 
+<div class="content" *ngIf="tests">
+  <div>
+    <h3
+      *ngIf="tests.length === 1 && checkType('Osocze'); else moreThanOneOsocze"
+    >
+      1 x <span class="material-symbols-outlined symbolOsocze"> labs </span>
+    </h3>
+    <ng-template #moreThanOneOsocze>
+      <div *ngIf="checkType('Osocze')">
+        <ng-container
+          *ngIf="checkExternal('Osocze'); then osocze2; else osocze"
+        ></ng-container>
+        <ng-template #osocze2>
+          <h3>
+            2 x
+            <span class="material-symbols-outlined symbolOsocze"> labs </span>
+          </h3>
+        </ng-template>
+        <ng-template #osocze>
+          <h3>
+            1 x
+            <span class="material-symbols-outlined symbolOsocze"> labs </span>
+          </h3>
+        </ng-template>
+      </div>
+    </ng-template>
+  </div>
+
   <div>
     <h3 *ngIf="tests.length === 1 && checkType('EDTA'); else moreThanOneEdta">
       1 x <span class="material-symbols-outlined symbolEdta"> labs </span>
