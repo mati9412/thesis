@@ -1,0 +1,4 @@
+Aplikacja do obsługi pacjentów punktu pobrań, do uruchomienia aplikacji potrzebny jest dowolny edytor kodu źródłowego. 
+Instrukcja:
+1. Należy uruchomić terminal w IDE, następnie w katalogu głównym projektu wykonać komendę 'npm install'
+2. Po instalacji zależności należy wykonać komendę 'ng serve --open'. Spowoduje to kompilację i automatyczne uruchomienie aplikacji w domyślnej przeglądarce 
