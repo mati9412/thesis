@@ -1,7 +1,6 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +43,6 @@ registerLocaleData(localePL);
     AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule,
   ],
   providers: [ { provide: MAT_DATE_LOCALE, useValue: 'pl' } ],
   bootstrap: [AppComponent],
