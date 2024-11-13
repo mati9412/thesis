@@ -15,6 +15,6 @@ export class AppComponent {
     return this.auth.isAuthenticated;
   }
   logout() {
-    this.auth.logout();
+    // this.auth.logout();
   }
 }

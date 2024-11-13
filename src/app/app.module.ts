@@ -8,14 +8,13 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login/login.component';
-import { AngularFireModule } from '@angular/fire/compat';
 import { firebaseConfig } from './firebaseConfig/firebaseConfig';
 import { OrdersComponent } from './components/ordersCreator/orders/orders.component';
 import { FormsModule } from '@angular/forms';
 import { OrdersListComponent } from './components/orders-list/orders-list.component';
 import { CartComponent } from './components/ordersCreator/cart/cart.component';
 import { TestTubesComponent } from './components/ordersCreator/test-tubes/test-tubes.component';
-import localePL from '@angular/common/locales/pl'
+import localePL from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
 import { TestsFinderComponent } from './components/ordersCreator/tests-finder/tests-finder.component';
 import { FinancesComponent } from './components/finances/finances.component';
@@ -41,12 +40,10 @@ registerLocaleData(localePL);
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
-    HttpClientModule,
-    Ng2SearchPipeModule,
+    HttpClientModule
   ],
-  providers: [ { provide: MAT_DATE_LOCALE, useValue: 'pl' } ],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pl' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
