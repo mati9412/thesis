@@ -35,7 +35,9 @@ registerLocaleData(localePL);
         UpdatePersonComponent,
     ],
     bootstrap: [AppComponent], imports: [
-        // BrowserModule,
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         MaterialModule], providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pl' }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
