@@ -36,11 +36,11 @@ registerLocaleData(localePL);
     UpdatePersonComponent,
   ],
   imports: [
-    BrowserModule,
+    // BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule,
-    FormsModule,
+    // BrowserAnimationsModule,
+    // FormsModule,
     HttpClientModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pl' }],
