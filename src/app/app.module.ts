@@ -1,6 +1,9 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,21 +26,29 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 registerLocaleData(localePL);
 
-@NgModule({ declarations: [
-        AppComponent,
-        LoginComponent,
-        OrdersComponent,
-        OrdersListComponent,
-        CartComponent,
-        TestTubesComponent,
-        TestsFinderComponent,
-        FinancesComponent,
-        UpdatePersonComponent,
-    ],
-    bootstrap: [AppComponent], imports: [
-        BrowserModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        MaterialModule], providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pl' }, provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    OrdersComponent,
+    OrdersListComponent,
+    CartComponent,
+    TestTubesComponent,
+    TestsFinderComponent,
+    FinancesComponent,
+    UpdatePersonComponent,
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    MaterialModule,
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pl' },
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
+})
 export class AppModule {}
