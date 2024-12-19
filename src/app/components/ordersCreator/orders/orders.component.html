@@ -3,7 +3,7 @@
   <mat-card class="card patient-details">
     <mat-card-header>
       <span mat-card-avatar class="material-symbols-outlined"> person </span>
-      <mat-card-title>Wprowadź dane pacjenta</mat-card-title>
+      <mat-card-title>Dane pacjenta</mat-card-title>
     </mat-card-header>
     <mat-form-field appearance="fill">
       <mat-label>Pesel</mat-label>
@@ -119,10 +119,10 @@
       </mat-radio-group>
     </mat-card>
     <div class="submit-form">
-      <button mat-button type="submit" [disabled]="ordersForm.invalid">
+      <h3>Cena: {{ order.payment }} zł</h3>
+      <button color="accent" mat-raised-button type="submit" [disabled]="ordersForm.invalid">
         Zarejestruj zlecenie
       </button>
-      <h3>Cena: {{ order.payment }} zł</h3>
     </div>
   </mat-card>
 </form>

@@ -1,11 +1,6 @@
 .orders-form {
   display: flex;
   justify-content: center;
-  /* justify-content:space-evenly; */
-  /* justify-content:space-between */
-
-  /* flex-direction: column; */
-  /* align-items: flex-start; */
 }
 
 .card {
@@ -31,7 +26,17 @@
 
 .submit-form {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin-top: 50%;
+}
+
+@media(max-width: 768px) {
+  .orders-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
